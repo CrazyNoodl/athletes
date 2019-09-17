@@ -1,65 +1,59 @@
 .player {
+  padding: 0;
 
   &__card {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
     max-width: 220px;
     text-align: center;
     position: relative;
-    transition: 1s;
+    transition: transform 1s;
+    height: 300px;
+    padding-top: 10px;
+    margin-top: -20px; 
 
     &:hover {
       z-index: 1;
       transform: scale(1.2);
-      padding: 12px;
       background-color: #EEEEEE;
       border-radius: 12px;
     }
 
     &:hover img {
       border-radius: 60px;
-     
     }
 
     &:hover .player__name {
-      font-size: 22px;
-      line-height: 28px;
-      margin-bottom: 11px;
+      padding-bottom: 11px;
     }
 
     &:hover .player__money {
       display: block;
     }
 
-    @include mobile {
-      min-width: 220px;
+    @for $rank from 1 through 10 {
+      &:nth-child(#{$rank}):after {
+        content: "#{$rank}";
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        background-color: $light-color;
+        bottom: 100px;
+        right: calc(50% - 16px);
+        border-radius: 50%;
+        color: #8B0000;
+        font-size: 16px;
+        line-height: 32px;
+        border: 1px solid #8B0000;
+      }
     }
   }
 
   &__photo {
     position: relative;
     margin-bottom: 8px;
-  
-    &>img {
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-      transition: 1s;
-    }
-  }
-
-  &__rank {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-color:$light-color;
-    top: calc(50% - 16px);
-    right: 10px;
+    width: 200px;
+    height: auto;
     border-radius: 50%;
-    color: #8B0000;
-    font-size: 16px;
-    line-height: 32px;
+    transition: 1s;
   }
 
   &__name {
