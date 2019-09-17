@@ -1,0 +1,17 @@
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 25px;
+
+  &_players {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @include mobile {
+      max-width: 500px;
+      justify-content: center;
+
+    }
+  }
+}
