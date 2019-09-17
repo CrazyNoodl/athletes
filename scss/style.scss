@@ -1,0 +1,21 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+@import "section";
+@import "header";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include main-font;
+
+  font-size: $main-size;
+  font-weight: $main-weight;
+  line-height: $main-height;
+  color: $main-color;
+}
+
+@import "container";
+@import "player";
